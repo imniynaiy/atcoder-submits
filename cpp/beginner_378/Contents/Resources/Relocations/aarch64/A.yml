@@ -1,0 +1,7 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/theoriz/Desktop/AtCoder/c++/A'
+relocations:
+  - { offset: 0x782E, size: 0x8, addend: 0x0, symName: __ZStL8__ioinit, symObjAddr: 0x198B4, symBinAddr: 0x100008000, symSize: 0x0 }
+  - { offset: 0x7A04, size: 0x8, addend: 0x0, symName: _main, symObjAddr: 0x0, symBinAddr: 0x100003B98, symSize: 0x260 }
+...
