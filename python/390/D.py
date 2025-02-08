@@ -12,6 +12,4 @@ for a in A:
     sum = sum ^ a
 
 for i in range(1,N // 2 + 1):
-    
-
-print(len(ans))
+    print(len(ans))
