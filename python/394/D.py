@@ -1,33 +1,67 @@
 s = input()
 
-left_bracket = []
-left_arrow = []
-left_square_bracket = []
+last_ch = ''
 
-for i in range(len(s)):
+i = 0
+
+while i < len(s):
     ch = s[i]
-    if ch == "(":
-        left_bracket.append(i)
-    elif ch == "<":
-        left_arrow.append(i)
-    elif ch == "[":
-        left_square_bracket.append(i)
-    elif ch == ")":
-        if len(left_bracket) > 0:
-            left_bracket.pop()
+    if ch == ">":
+        if last_ch == "<":
+            s = s[:i-1] + s[i+1:]
+            if len(s) > 0:
+                if i >= 2:
+                    last_ch = s[i-2]
+                    i -= 1
+                else:
+                    last_ch = ''
+                    i = 0
+            else:
+                last_ch = ''
+                print("Yes")
+                exit()
         else:
-            print("No")
-    elif ch == ">":
-        if len(left_arrow) > 0:
-            left_arrow.pop()
-        else:
-            print("No")
+            last_ch = ch
+            i+=1
     elif ch == "]":
-        if len(left_square_bracket) > 0:
-            left_square_bracket.pop()
+        if last_ch == "[":
+            s = s[:i-1] + s[i+1:]
+            if len(s) > 0:
+                if i >= 2:
+                    last_ch = s[i-2]
+                    i -= 1
+                else:
+                    last_ch = ''
+                    i=0
+            else:
+                last_ch = ''
+                print("Yes")
+                exit()
         else:
-            print("No")
-if len(left_arrow) == 0 and len(left_bracket) == 0 and len(left_square_bracket) == 0:
+            last_ch = ch
+            i+=1
+    elif ch == ")":
+        if last_ch == "(":
+            s = s[:i-1] + s[i+1:]
+            if len(s) > 0:
+                if i >= 2:
+                    last_ch = s[i-2]
+                    i-=1
+                else:
+                    last_ch = ''
+                    i = 0
+            else:
+                last_ch = ''
+                print("Yes")
+                exit()
+        else:
+            last_ch = ch
+            i+=1
+    else: 
+        last_ch = ch
+        i+=1
+
+if len(s) == 0:
     print("Yes")
 else:
     print("No")
