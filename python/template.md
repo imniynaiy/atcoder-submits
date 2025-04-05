@@ -13,7 +13,7 @@ a = list(map(int, input().split()))
 get multiple int from input
 
 ```python
-a, b = map(int, str.split())
+a, b = map(int, input().split())
 ```
 
 create matrix
